@@ -27,6 +27,22 @@ def index():
 
     return 'Hello, World!'
 
+@app.route('/players/<player_name>')
+def get_player(player_name):
+    # Access the "players" collection
+    collection = mongo.db.players
+
+    # Find the document with the specified player_name
+    player = collection.find_one({"name": player_name})
+
+    # Check if the player exists
+    if player:
+        # Return the player details as JSON response
+        return jsonify(player)
+    else:
+        # Return an error message if player is not found
+        return jsonify({'error': 'Player not found'}), 404
+
 @app.route('/players')
 def listPlayers():
     # Access MongoDB collection
