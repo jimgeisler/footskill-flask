@@ -35,11 +35,11 @@ def listPlayers():
     # Perform database operations
     data = collection.find()
 
-    result = "Players:<br/>"
-    for d in data:
-        result += d.name + '<br/>'
+    # result = "Players:<br/>"
+    # for d in data:
+    #     result += d.name + '<br/>'
 
-    return result
+    return data
  
 
 # Run the application if this script is executed directly
