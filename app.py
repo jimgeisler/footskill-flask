@@ -25,7 +25,7 @@ def index():
     # Perform database operations
     data = collection.find()
 
-    return 'Hello, World!'
+    return 'Hello, World!' + username
 
 @app.route('/players/<player_name>')
 def get_player(player_name):
